@@ -34,6 +34,13 @@
       "chartType": "spline",
       "color": "#d35400",
       "isVisible": true
+    },
+    {
+      "id": "c151041f-0ed7-33f6-45e8-e10d66d0c271",
+      "chartTitle": "dfsdf",
+      "chartType": "spline",
+      "color": "#7d3c98",
+      "isVisible": true
     }
   ]
 }
