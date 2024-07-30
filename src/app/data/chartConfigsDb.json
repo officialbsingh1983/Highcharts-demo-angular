@@ -1,0 +1,39 @@
+{
+  "chartConfigObj": [
+    {
+      "id": "3eacace4-8fdb-dd14-b5ac-70625303ad62",
+      "chartTitle": "sales",
+      "chartType": "line",
+      "color": "#7d3c98",
+      "isVisible": true
+    },
+    {
+      "id": "6fb9ccf0-ea38-ac0e-740f-c2fd52b77fa3",
+      "chartTitle": "Purchase",
+      "chartType": "spline",
+      "color": "#7d3c98",
+      "isVisible": true
+    },
+    {
+      "id": "33c917fe-1463-240e-5fe7-0b5ddaa5dd5f",
+      "chartTitle": "asasdasas",
+      "chartType": "area",
+      "color": "#2e86c1",
+      "isVisible": true
+    },
+    {
+      "id": "f40ab374-84db-8d66-8023-b302b5357cc2",
+      "chartTitle": "tertreter",
+      "chartType": "spline",
+      "color": "#2e86c1",
+      "isVisible": true
+    },
+    {
+      "id": "2c64e644-dc17-2460-e680-524b9d33edce",
+      "chartTitle": "yuyyyyy",
+      "chartType": "spline",
+      "color": "#d35400",
+      "isVisible": true
+    }
+  ]
+}

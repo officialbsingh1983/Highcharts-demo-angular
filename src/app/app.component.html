@@ -1,0 +1,15 @@
+    <mat-toolbar class="bar-color mat-elevation-z8">
+        <span>Highcharts Demo<br>
+            <span class="name-plate">Bhupinder Singh (INDIA)</span>
+        </span>
+        <span class="example-spacer"></span>
+        <div class="default-link">
+            <a mat-stroked-button [routerLink]="['/']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">View Mode</a>  
+            <a mat-stroked-button [routerLink]="['/settings']" [routerLinkActive]="['active']">Settings</a>
+        </div>
+        
+    </mat-toolbar>
+<div style="text-align: center;min-height: 600px;">
+<router-outlet />
+</div>
+

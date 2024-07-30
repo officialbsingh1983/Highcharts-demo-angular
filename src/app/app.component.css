@@ -1,0 +1,24 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.bar-color{
+    background: #212f3d;
+    color: white;
+  }
+  .active {
+    background-color: #e5e8e8 !important;
+  }
+  /* .default-link{
+    color: #566573;
+    font-size: 20px;
+  } */
+  .default-link a{
+    color: #566573;
+    font-size: 15px;
+    margin-right: 10px;
+    background-color: #909497;
+  }
+  .name-plate{
+    font-size: 14px;
+    color: #aab7b8;
+  }

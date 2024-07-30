@@ -1,0 +1,46 @@
+<mat-card appearance="outlined">
+    <mat-card-header>
+        <mat-card-title>View Mode</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field *ngIf="chartOptionsList.length>0">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+                <input matStartDate formControlName="start" placeholder="Start date">
+                <input matEndDate formControlName="end" placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker touchUi  #picker>
+                <mat-date-range-picker-actions>
+                    <button mat-button matDateRangePickerCancel>Cancel</button>
+                    <button mat-raised-button (click)="filterDateWise()" matDateRangePickerApply>Apply</button>
+                </mat-date-range-picker-actions>
+            </mat-date-range-picker>
+
+            @if (range.controls.start.hasError('matStartDateInvalid')) {
+            <mat-error>Invalid start date</mat-error>
+            }
+            @if (range.controls.end.hasError('matEndDateInvalid')) {
+            <mat-error>Invalid end date</mat-error>
+            }
+        </mat-form-field>
+        <div *ngIf="chartOptionsList.length>0; else noChartAvailable">
+            <button mat-button (click)="generateChartData()">Randomize Data</button>
+            <mat-grid-list cols="2">
+                <mat-grid-tile style="border: 1px solid red;" *ngFor="let option of chartOptionsList">
+                    <highcharts-chart [Highcharts]="Highcharts" [options]="option"></highcharts-chart>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </div>
+        <ng-template #noChartAvailable>
+            <span>
+                No chart available..!<br>
+                Please go to <a mat-stroked-button [routerLink]="['/settings']" [routerLinkActive]="['active']">Settings</a> page and add one or more charts.
+            </span>
+        </ng-template>
+    </mat-card-content>
+    <mat-card-footer>
+    </mat-card-footer>
+</mat-card>
+
