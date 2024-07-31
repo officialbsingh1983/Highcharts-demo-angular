@@ -1,51 +1,61 @@
 <form [formGroup]="form" (ngSubmit)="fnSaveChart()">
   <input type="hidden" formControlName="id">
+  <input type="hidden" formControlName="color" required>
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>{{dialogData.dialogTitle}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field>
-        <mat-label>Chart title</mat-label>
-        <input matInput formControlName="chartTitle" required />
-      </mat-form-field>
-      <!-- </mat-form-field> -->
-      <div [(colorPicker)]="colorFromPicker" [cpCancelButton]=true (colorPickerChange)="onColorPickerChange($event)"
-        [style.background]="colorFromPicker">d</div>
-      <mat-form-field class="mat-50">
-        <mat-label>Color</mat-label>
-        <!-- <input [(colorPicker)]="colorFromPicker" [style.background]="colorFromPicker"/> -->
-        <!-- <input readonly matInput formControlName="color" required/> -->
-
-        <span matTextPrefix>+1 &nbsp;</span>
-        <input readonly matInput formControlName="color" required>
-        <mat-icon matSuffix>mode_edit</mat-icon>
-
-        <!-- <mat-radio-group formControlName="chartType" aria-label="Select an option">
-          <mat-radio-button value="line">Line</mat-radio-button>
-          <mat-radio-button value="spline">Spline</mat-radio-button>
-          <mat-radio-button value="area">Area</mat-radio-button>
-        </mat-radio-group> -->
-        <!-- <mat-select formControlName="color">
-          <mat-option value="#d35400">#d35400</mat-option>
-          <mat-option value="#2e86c1">#2e86c1</mat-option>
-          <mat-option value="#7d3c98">#7d3c98</mat-option>
-        </mat-select> -->
-      </mat-form-field>
-      <br>
-      <mat-radio-group formControlName="chartType" aria-label="Select an option">
-        <mat-radio-button value="line">Line</mat-radio-button>
-        <mat-radio-button value="spline">Spline</mat-radio-button>
-        <mat-radio-button value="area">Area</mat-radio-button>
-      </mat-radio-group>
-
-      <mat-slide-toggle formControlName="isVisible">Is Visible</mat-slide-toggle>
 
 
+      <table style="width: 100%;">
+        <tr>
+          <th>Chart Name: </th>
+          <td colspan="2">
+            <mat-form-field>
+              <!-- <mat-label>Chart title</mat-label> -->
+              <input matInput formControlName="chartTitle" required />
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <th>Chart Type: </th>
+          <td colspan="2">
+            <mat-radio-group formControlName="chartType" aria-label="Select an option">
+              <mat-radio-button value="line">Line</mat-radio-button>
+              <mat-radio-button value="spline">Spline</mat-radio-button>
+              <mat-radio-button value="area">Area</mat-radio-button>
+            </mat-radio-group>
+          </td>
+        </tr>
+        <tr>
+          <th>Chart Color: </th>
+
+          <td>
+
+            <mat-chip-row>
+              <!-- <button matChipRemove>
+                  <mat-icon>radio_button_checked</mat-icon>
+                </button> -->
+              <span [style.color]="colorFromPicker">{{form.controls.color.value}}</span>
+            </mat-chip-row>
+
+          </td>
+          <td>
+            <div class="pick-color-btn" mat-stroked-button [(colorPicker)]="colorFromPicker" [cpCancelButton]=true [cpOKButton]="true"
+              (colorPickerChange)="onColorPickerChange($event)"><u>Pick Color</u></div>
+          </td>
+        </tr>
+        <tr>
+          <th>Is Visible: </th>
+          <td><mat-slide-toggle formControlName="isVisible"></mat-slide-toggle></td>
+          <td colspan="2"></td>
+        </tr>
+      </table>
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="primary" type="submit">Save</button>
-      <button mat-stroked-button color="accent" (click)="fnCloseDialog()">Dismiss</button>
+      <!-- <button mat-stroked-button color="accent" (click)="fnCloseDialog()">Dismiss</button> -->
     </mat-card-actions>
   </mat-card>
 </form>

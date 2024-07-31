@@ -20,3 +20,9 @@ mat-card{
 button{
         margin: 2%;
 }
+
+.pick-color-btn{
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+}

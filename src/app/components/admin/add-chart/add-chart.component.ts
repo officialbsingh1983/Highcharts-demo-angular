@@ -14,7 +14,7 @@ import { IChartConfig } from '../../../stores/models/chart-config.model';
 })
 export class AddChartComponent implements OnInit {
   public form: any;
-  colorFromPicker:string='';
+  colorFromPicker:string='#011515';
   //public dialogTitle: string='';
   constructor(private builder: FormBuilder,
     private ref:MatDialogRef<AddChartComponent>,    
@@ -26,7 +26,7 @@ export class AddChartComponent implements OnInit {
       id: this.builder.control(this.dialogData.id==''? Guid.create().toString(): this.dialogData.id),
       chartTitle: this.builder.control('', Validators.required),
       chartType: this.builder.control('line', Validators.required),
-      color: this.builder.control('', Validators.required),
+      color: this.builder.control(this.colorFromPicker, Validators.required),
       isVisible: this.builder.control(true, Validators.required)
     });
   }
