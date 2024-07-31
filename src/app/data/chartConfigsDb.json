@@ -1,45 +1,45 @@
 {
   "chartConfigObj": [
     {
-      "id": "3eacace4-8fdb-dd14-b5ac-70625303ad62",
-      "chartTitle": "sales",
+      "id": "228ec21a-2f8b-54af-9d0c-aad04ae5922f",
+      "chartTitle": "c2 edited",
       "chartType": "line",
-      "color": "#7d3c98",
+      "color": "#15eb2a",
       "isVisible": true
     },
     {
-      "id": "6fb9ccf0-ea38-ac0e-740f-c2fd52b77fa3",
-      "chartTitle": "Purchase",
-      "chartType": "spline",
-      "color": "#7d3c98",
-      "isVisible": true
-    },
-    {
-      "id": "33c917fe-1463-240e-5fe7-0b5ddaa5dd5f",
-      "chartTitle": "asasdasas",
+      "id": "957c31ab-856a-4088-0e24-58d6f059f250",
+      "chartTitle": "c4",
       "chartType": "area",
-      "color": "#2e86c1",
+      "color": "#ac3535",
       "isVisible": true
     },
     {
-      "id": "f40ab374-84db-8d66-8023-b302b5357cc2",
-      "chartTitle": "tertreter",
-      "chartType": "spline",
-      "color": "#2e86c1",
+      "id": "b294aa87-9e14-c808-3472-1dc917e672dd",
+      "chartTitle": "test chart name",
+      "chartType": "area",
+      "color": "#f93232",
       "isVisible": true
     },
     {
-      "id": "2c64e644-dc17-2460-e680-524b9d33edce",
-      "chartTitle": "yuyyyyy",
+      "id": "286dce2c-fa2b-c317-3b42-cfc3ed732e7b",
+      "chartTitle": "sdsfff",
       "chartType": "spline",
-      "color": "#d35400",
+      "color": "#e42424",
+      "isVisible": false
+    },
+    {
+      "id": "8c41254c-d8a2-43cf-91eb-4063c41de8b2",
+      "chartTitle": "sdfsffsfsd111111",
+      "chartType": "area",
+      "color": "#7e2121",
       "isVisible": true
     },
     {
-      "id": "c151041f-0ed7-33f6-45e8-e10d66d0c271",
-      "chartTitle": "dfsdf",
-      "chartType": "spline",
-      "color": "#7d3c98",
+      "id": "c4436349-9dd2-58a6-a06d-fe39d3cd7e6b",
+      "chartTitle": "zzz",
+      "chartType": "area",
+      "color": "#27498a",
       "isVisible": true
     }
   ]

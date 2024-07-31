@@ -14,10 +14,13 @@ export class ChartSettingsService {
   GetChartConfigById(id: string){
     return this.httpClient.get<IChartConfig>(this.baseUrl+'?id='+ id);
   }
-  DeleteChartConfig(id: string){
-    return this.httpClient.delete(this.baseUrl+'/'+id);
-  }
   CreateChartConfig(data: IChartConfig){
     return this.httpClient.post(this.baseUrl, data);
+  }
+  UpdateChartConfig(data: IChartConfig){
+    return this.httpClient.put(this.baseUrl+ '/' + data.id, data);
+  }
+  DeleteChartConfig(id: string){
+    return this.httpClient.delete(this.baseUrl+'/'+id);
   }
 }

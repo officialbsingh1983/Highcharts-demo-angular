@@ -7,25 +7,41 @@
     <mat-card-content>
       <mat-form-field>
         <mat-label>Chart title</mat-label>
-        <input matInput formControlName="chartTitle" required/>
-          <!-- <mat-error>{{errorMessage()}}</mat-error> -->
+        <input matInput formControlName="chartTitle" required />
       </mat-form-field>
-      <mat-form-field class="mat-50">
-        <mat-label>Chart type</mat-label>
-        <mat-select formControlName="chartType">
-          <mat-option value="line">Line</mat-option>
-          <mat-option value="spline">Spline</mat-option>
-          <mat-option value="area">Area</mat-option>
-        </mat-select>
-      </mat-form-field>
+      <!-- </mat-form-field> -->
+      <div [(colorPicker)]="colorFromPicker" [cpCancelButton]=true (colorPickerChange)="onColorPickerChange($event)"
+        [style.background]="colorFromPicker">d</div>
       <mat-form-field class="mat-50">
         <mat-label>Color</mat-label>
-        <mat-select formControlName="color">
+        <!-- <input [(colorPicker)]="colorFromPicker" [style.background]="colorFromPicker"/> -->
+        <!-- <input readonly matInput formControlName="color" required/> -->
+
+        <span matTextPrefix>+1 &nbsp;</span>
+        <input readonly matInput formControlName="color" required>
+        <mat-icon matSuffix>mode_edit</mat-icon>
+
+        <!-- <mat-radio-group formControlName="chartType" aria-label="Select an option">
+          <mat-radio-button value="line">Line</mat-radio-button>
+          <mat-radio-button value="spline">Spline</mat-radio-button>
+          <mat-radio-button value="area">Area</mat-radio-button>
+        </mat-radio-group> -->
+        <!-- <mat-select formControlName="color">
           <mat-option value="#d35400">#d35400</mat-option>
           <mat-option value="#2e86c1">#2e86c1</mat-option>
           <mat-option value="#7d3c98">#7d3c98</mat-option>
-        </mat-select>
+        </mat-select> -->
       </mat-form-field>
+      <br>
+      <mat-radio-group formControlName="chartType" aria-label="Select an option">
+        <mat-radio-button value="line">Line</mat-radio-button>
+        <mat-radio-button value="spline">Spline</mat-radio-button>
+        <mat-radio-button value="area">Area</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-slide-toggle formControlName="isVisible">Is Visible</mat-slide-toggle>
+
+
     </mat-card-content>
     <mat-card-actions>
       <button mat-flat-button color="primary" type="submit">Save</button>
@@ -33,4 +49,3 @@
     </mat-card-actions>
   </mat-card>
 </form>
-

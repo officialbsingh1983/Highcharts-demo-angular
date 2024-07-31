@@ -17,6 +17,7 @@ export class ChartViewerComponent implements OnInit {
   chartConfigList: IChartConfig[] = [];
   public chartOptionsList: Highcharts.Options[] = [];
   today = new Date();
+
   readonly range = new FormGroup({
     start: new FormControl<Date>(new Date(this.today.getTime() - (7 * 24 * 60 * 60 * 1000))),
     end: new FormControl<Date>(this.today),
@@ -39,12 +40,11 @@ export class ChartViewerComponent implements OnInit {
 
   generateChartData() {
     let totalDays = this.calculateDiff(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
-    console.log('totalDays ', totalDays);
     let dateRangeArray = this.getDatesInRange(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
     this.chartOptionsList = [];
     this.chartConfigList.forEach(element => {
       if (element.isVisible) {
-        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * 40));
+        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * this.randomBetween(10,200)));
         let chartOptions: Highcharts.Options = {
           title: {
             text: element.chartTitle,
@@ -85,12 +85,16 @@ export class ChartViewerComponent implements OnInit {
     const dates: string[] = [];
 
     while (date <= end) {
-      //console.log('after ' , end)
       dates.push(date.toDateString());
       date.setDate(date.getDate() + 1);
     }
-    console.log(dates)
     return dates;
   }
-
+  randomBetween(min:number, max:number) {
+    if (min < 0) {
+        return min + Math.random() * (Math.abs(min)+max);
+    }else {
+        return min + Math.random() * max;
+    }
+}
 }

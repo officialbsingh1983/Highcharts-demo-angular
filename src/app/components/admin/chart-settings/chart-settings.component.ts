@@ -4,7 +4,7 @@ import { AddChartComponent } from '../add-chart/add-chart.component';
 import { Store } from '@ngrx/store';
 import { IChartConfig } from '../../../stores/models/chart-config.model';
 import { getChartConfigList } from '../../../stores/chartConfig/chart-config.selector';
-import { loadChartConfigs, getChartConfigById } from '../../../stores/chartConfig/chart-configs.action';
+import { loadChartConfigs, getChartConfigById, deleteChartConfigById } from '../../../stores/chartConfig/chart-configs.action';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ChartSettingsComponent implements OnInit {
   chartConfigList: IChartConfig[]=[];
   dataSource:any;
-  colToBeShown:string[]=['id','chartTitle','chartType','color','isVisible', 'action'];
+  colToBeShown:string[]=['chartTitle','chartType','color','isVisible', 'action'];
   
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
@@ -32,11 +32,16 @@ export class ChartSettingsComponent implements OnInit {
   }
   
   fnOpenAddChartModal(){
-    this.openDialog('', 'Add chart config');
+    this.openDialog('', 'Add chart');
   }
   fnOpenUpdateChartModal(id: string){
     this.store.dispatch(getChartConfigById({id:id}));
-    this.openDialog(id, 'Edit chart config');
+    this.openDialog(id, 'Edit chart');
+  }
+  fnDelete(id: string){
+    if(confirm('Are you sure to delete?')){
+      this.store.dispatch(deleteChartConfigById({id: id}));
+    }
   }
   openDialog(id:string, dialogTitle:string){
     this.dialog.open(AddChartComponent, {

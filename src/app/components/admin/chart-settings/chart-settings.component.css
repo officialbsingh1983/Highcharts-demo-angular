@@ -1,6 +1,9 @@
 .mdc-card{
     margin: 2%;
 }
+.card-content{
+    padding: 15px;
+}
 
 button{
     margin: 2px;
@@ -8,3 +11,20 @@ button{
 table {
     width: 100%;
   }
+.btn-float{
+   
+    position: fixed;
+    right: 10px;
+    z-index: 1000;
+    bottom: 50px;
+    background-color: #229954;
+    color: #fbfcfc;
+}
+.text-align{
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+.col-title{
+    font-weight: bold;
+    color: #273746;
+}

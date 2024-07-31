@@ -18,7 +18,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatChipsModule} from '@angular/material/chips';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
     exports:[
         MatCardModule,
@@ -39,7 +40,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
         MatListModule,
         MatIconModule,
         MatDatepickerModule,
-        MatGridListModule
+        MatGridListModule,
+        MatChipsModule,
+        MatSlideToggleModule
     ]
 })
 export class MaterialModule{

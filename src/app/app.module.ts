@@ -20,6 +20,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { ChartViewerComponent } from './components/client/chart-viewer/chart-viewer.component';
 import {JsonPipe} from '@angular/common';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import { ColorPickerModule } from 'ngx-color-picker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import {provideNativeDateAdapter} from '@angular/material/core';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     HighchartsChartModule,
     FormsModule,
-    JsonPipe
+    JsonPipe,
+    ColorPickerModule 
   ],
   providers: [
     provideAnimationsAsync(),

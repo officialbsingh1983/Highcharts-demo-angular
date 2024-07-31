@@ -1,34 +1,65 @@
-<mat-card appearance="outlined">
+<button class="btn-float" (click)="fnOpenAddChartModal()" color="success" mat-fab extended
+    aria-label="Example icon button with a delete icon">
+    <mat-icon>add</mat-icon> Add Chart
+</button>
+<mat-card appearance="outlined" style="min-height: 500px;">
     <mat-card-header>
-        <mat-card-title>Settings</mat-card-title>
-        <button (click)="fnOpenAddChartModal()" mat-flat-button color="primary">Add Chart (+)</button>
+        <mat-card-title>
+            <mat-chip-set #reactiveChipGrid aria-label="Enter reactive form keywords">
+                <mat-chip-row>
+                    <button matChipRemove>
+                        <mat-icon>settings</mat-icon>
+                    </button>
+                    Settings
+                </mat-chip-row>
+            </mat-chip-set>
+        </mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="card-content">
         <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
-            <ng-container matColumnDef="id">
+            <!-- <ng-container matColumnDef="id">
                 <th mat-sort-header mat-header-cell *matHeaderCellDef>Id </th>
                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-            </ng-container>
+            </ng-container> -->
             <ng-container matColumnDef="chartTitle">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef> Chart Name </th>
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> <span class="col-title">Chart Name</span></th>
                 <td mat-cell *matCellDef="let element"> {{element.chartTitle}} </td>
             </ng-container>
             <ng-container matColumnDef="chartType">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef> Chart Type </th>
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> <span class="col-title">Chart Type</span> </th>
                 <td mat-cell *matCellDef="let element"> {{element.chartType}} </td>
             </ng-container>
             <ng-container matColumnDef="color">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef> Color </th>
-                <td mat-cell *matCellDef="let element"> {{element.color}} </td>
+                <th mat-sort-header mat-header-cell *matHeaderCellDef>
+                    <div class="col-title">Color</div>
+                </th>
+                <td mat-cell *matCellDef="let element">
+
+
+                    <mat-chip-set #reactiveChipGrid aria-label="Enter reactive form keywords">
+                        <mat-chip-row>
+                            <button matChipRemove>
+                                <mat-icon [style.color]="element.color">radio_button_checked</mat-icon>
+                            </button>
+                            {{element.color}}
+                        </mat-chip-row>
+                    </mat-chip-set>
+                </td>
             </ng-container>
             <ng-container matColumnDef="isVisible">
-                <th mat-sort-header mat-header-cell *matHeaderCellDef> Is Visible </th>
-                <td mat-cell *matCellDef="let element"> {{element.isVisible}} </td>
+                <th mat-sort-header mat-header-cell *matHeaderCellDef> <span class="col-title">Is Visible</span> </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-icon style="color: #2c3e50" *ngIf="element.isVisible; else notVisible">visibility</mat-icon>
+                    <ng-template #notVisible>
+                        <mat-icon style="color: #808b96;">visibility_off</mat-icon>
+                    </ng-template>
+                </td>
             </ng-container>
             <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef> Action </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-button (click)="fnOpenUpdateChartModal(element.id)">Edit</button>
+                <th mat-header-cell *matHeaderCellDef class="text-align"> <span class="col-title">Action</span> </th>
+                <td mat-cell *matCellDef="let element" class="text-align">
+                    <button mat-button mat-stroked-button (click)="fnOpenUpdateChartModal(element.id)">Edit</button>
+                    <button mat-button mat-stroked-button (click)="fnDelete(element.id)">Delete</button>
                 </td>
             </ng-container>
 
@@ -36,7 +67,7 @@
             <tr mat-row *matRowDef="let row; columns: colToBeShown;"></tr>
         </table>
     </mat-card-content>
-    <mat-card-footer>
+    <mat-card-footer class="card-content">
         <mat-paginator [pageSizeOptions]="[5,10,50]" showFirstLastButtons></mat-paginator>
     </mat-card-footer>
     <!-- <mat-card-actions>

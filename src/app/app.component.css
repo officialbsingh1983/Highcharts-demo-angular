@@ -2,23 +2,23 @@
     flex: 1 1 auto;
   }
 .bar-color{
-    background: #212f3d;
-    color: white;
+    background: #229954;
+    color: #fbfcfc;
   }
   .active {
-    background-color: #e5e8e8 !important;
+    background-color: #a9dfbf !important;
   }
   /* .default-link{
     color: #566573;
     font-size: 20px;
   } */
   .default-link a{
-    color: #566573;
+    color: #8e44ad;
     font-size: 15px;
     margin-right: 10px;
-    background-color: #909497;
+    background-color: #229954;
   }
   .name-plate{
     font-size: 14px;
-    color: #aab7b8;
+    color: #1c2833;
   }

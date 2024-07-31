@@ -3,9 +3,10 @@ import { Component,Inject,OnInit
 import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { createChartConfigs } from '../../../stores/chartConfig/chart-configs.action';
+import { createChartConfigs, updateChartConfigs } from '../../../stores/chartConfig/chart-configs.action';
 import { getChartConfigById } from '../../../stores/chartConfig/chart-config.selector';
 import { Guid } from 'guid-typescript';
+import { IChartConfig } from '../../../stores/models/chart-config.model';
 @Component({
   selector: 'app-add-chart',
   templateUrl: './add-chart.component.html',
@@ -13,6 +14,7 @@ import { Guid } from 'guid-typescript';
 })
 export class AddChartComponent implements OnInit {
   public form: any;
+  colorFromPicker:string='';
   //public dialogTitle: string='';
   constructor(private builder: FormBuilder,
     private ref:MatDialogRef<AddChartComponent>,    
@@ -23,46 +25,37 @@ export class AddChartComponent implements OnInit {
    this.form=this.builder.group({
       id: this.builder.control(this.dialogData.id==''? Guid.create().toString(): this.dialogData.id),
       chartTitle: this.builder.control('', Validators.required),
-      chartType: this.builder.control('', Validators.required),
+      chartType: this.builder.control('line', Validators.required),
       color: this.builder.control('', Validators.required),
       isVisible: this.builder.control(true, Validators.required)
     });
   }
 
   ngAfterViewInit(){
-   
-   
     if(this.dialogData.id!=''){
       this.store.select(getChartConfigById).subscribe(res=>{
-        console.log(res, 'fff')
-        // if((res instanceof Array)){
-        //   var single = [res];
-        //   console.log(res, 'sdfsfsfsd')
-        //   this.form.setValue({
-        //   id: single[0].id,
-        //   chartTitle: single[0].chartTitle,
-        //   chartType: single[0].chartType,
-        //   color: single[0].color,
-        //   isVisible:single[0].isVisible
-        // });
-        // }
-        
+        if((res instanceof Array)){
+          this.form.patchValue((res as Array<IChartConfig>)[0]);
+        }
       })
     }
   }
 
   fnSaveChart(){
     if(this.form.valid){
-      if(this.form.controls.id.value!=''){
+      if(this.dialogData.id==''){
         this.store.dispatch(createChartConfigs({inputData:this.form.value}));
       }
       else{
-        console.log('asdasasd');
+        this.store.dispatch(updateChartConfigs({inputData:this.form.value}));
       }
       this.fnCloseDialog();
     }
   }
 
+  onColorPickerChange(event: any){
+    this.form.controls.color.patchValue(event);
+  }
   fnCloseDialog(){
     this.ref.close();
   }
