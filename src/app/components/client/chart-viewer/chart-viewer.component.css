@@ -3,9 +3,9 @@
 }
 
 .chart-tile {
-    border: 2px dashed #82e0aa;
+    border: 2px dashed #2980b9;
     padding-top: 20px;
-    background: #82e0aa;
+    background: #2980b9;
 }
 
 .container {
@@ -13,6 +13,6 @@
     flex-wrap: wrap;
 }
 
-.date-range-error{
-    color:#c0392b;
+.date-range-error {
+    color: #c0392b;
 }

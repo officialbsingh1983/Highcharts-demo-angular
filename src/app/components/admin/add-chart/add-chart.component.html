@@ -4,18 +4,17 @@
   <mat-card appearance="outlined">
     <mat-card-header>
       <mat-card-title>
-        <div class="page-title"><h6>{{dialogData.dialogTitle}}</h6></div>
+        <div class="page-title">
+          <h6>{{dialogData.dialogTitle}}</h6>
+        </div>
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
-
       <table style="width: 100%;">
         <tr>
           <th>Chart Name: </th>
           <td colspan="2">
             <mat-form-field>
-              <!-- <mat-label>Chart title</mat-label> -->
               <input matInput formControlName="chartTitle" required />
             </mat-form-field>
           </td>
@@ -30,22 +29,17 @@
             </mat-radio-group>
           </td>
         </tr>
-        <tr >
+        <tr>
           <th class="dialog-row">Chart Color: </th>
-
           <td class="dialog-row">
-
             <mat-chip-row>
-              <!-- <button matChipRemove>
-                  <mat-icon>radio_button_checked</mat-icon>
-                </button> -->
               <span [style.color]="colorFromPicker">{{form.controls.color.value}}</span>
             </mat-chip-row>
 
           </td>
           <td class="dialog-row">
-            <div class="pick-color-btn" mat-stroked-button [(colorPicker)]="colorFromPicker" [cpCancelButton]=true [cpOKButton]="true"
-              (colorPickerChange)="onColorPickerChange($event)"><u><b>Pick Color</b></u></div>
+            <div class="pick-color-btn" mat-stroked-button [(colorPicker)]="colorFromPicker" [cpCancelButton]=true
+              [cpOKButton]="true" (colorPickerChange)="onColorPickerChange($event)"><u><b>Pick Color</b></u></div>
           </td>
         </tr>
         <tr>

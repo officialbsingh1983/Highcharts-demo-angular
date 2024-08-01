@@ -1,4 +1,3 @@
-import {EntityState} from '@ngrx/entity'
 export interface IChartConfig{
     id: string,
     chartTitle: string,
@@ -7,7 +6,6 @@ export interface IChartConfig{
     isVisible: boolean
 }
 
-// export interface IChartConfigModel extends EntityState<IChartConfig>{}
 export interface IChartConfigModel{
     list:IChartConfig[],
     chartConfigObj: IChartConfig,

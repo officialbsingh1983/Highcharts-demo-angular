@@ -30,15 +30,14 @@ export class ChartConfigEffects {
             exhaustMap((action) => {
                 return this.chartSettingsService.GetChartConfigById(action.id).pipe(
                     map((data) => {
-                        
+
                         return getChartConfigsByIdSuccess({ chartConfig: data })
                     }),
-                    catchError((_error) => of(displayAlert({ message: 'Failed to fetch chart config..!', resultType:'fail' })))
+                    catchError((_error) => of(displayAlert({ message: 'Failed to fetch chart config..!', resultType: 'fail' })))
                 )
             })
         )
     )
-
 
     _createChartConfigs = createEffect(() =>
         this.actions.pipe(
@@ -47,14 +46,14 @@ export class ChartConfigEffects {
                 return this.chartSettingsService.CreateChartConfig(action.inputData).pipe(
                     switchMap((data) => {
                         return of(createChartConfigsSuccess({ inputData: action.inputData }),
-                            displayAlert({message:'Created Successfully', resultType:'pass'}))
+                            displayAlert({ message: 'Created Successfully', resultType: 'pass' }))
                     }),
-                    catchError((_error) => of(displayAlert({ message: 'Failed to create chart config..!', resultType:'fail' })))
+                    catchError((_error) => of(displayAlert({ message: 'Failed to create chart config..!', resultType: 'fail' })))
                 )
             })
         )
     )
-    
+
     _updateChartConfigs = createEffect(() =>
         this.actions.pipe(
             ofType(updateChartConfigs),
@@ -62,9 +61,9 @@ export class ChartConfigEffects {
                 return this.chartSettingsService.UpdateChartConfig(action.inputData).pipe(
                     switchMap((data) => {
                         return of(updateChartConfigsSuccess({ inputData: action.inputData }),
-                            displayAlert({message:'Updated Successfully', resultType:'pass'}))
+                            displayAlert({ message: 'Updated Successfully', resultType: 'pass' }))
                     }),
-                    catchError((_error) => of(displayAlert({ message: 'Failed to update chart config..!', resultType:'fail' })))
+                    catchError((_error) => of(displayAlert({ message: 'Failed to update chart config..!', resultType: 'fail' })))
                 )
             })
         )
@@ -77,19 +76,13 @@ export class ChartConfigEffects {
                 return this.chartSettingsService.DeleteChartConfig(action.id).pipe(
                     switchMap((data) => {
                         return of(deleteChartConfigsByIdSuccess({ id: action.id }),
-                            displayAlert({message:'Deleted Successfully', resultType:'pass'}))
+                            displayAlert({ message: 'Deleted Successfully', resultType: 'pass' }))
                     }),
-                    catchError((_error) => of(displayAlert({ message: 'Failed to delete chart config..!', resultType:'fail' })))
+                    catchError((_error) => of(displayAlert({ message: 'Failed to delete chart config..!', resultType: 'fail' })))
                 )
             })
         )
     )
-
-
-
-
-
-
 
 
 
@@ -109,7 +102,6 @@ export class ChartConfigEffects {
             })
         )
     )
-
 
     popShacBar(message: string, resultType: string = 'fail') {
         let className = resultType == 'pass' ? 'green-snackbar' : 'red-snackbar';

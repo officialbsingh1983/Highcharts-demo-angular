@@ -1,16 +1,15 @@
-import { ChangeDetectionStrategy, Component, OnInit, Type } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { IChartConfig } from '../../../stores/models/chart-config.model';
 import { Store } from '@ngrx/store';
 import { loadChartConfigs } from '../../../stores/chartConfig/chart-configs.action';
 import { getChartConfigList } from '../../../stores/chartConfig/chart-config.selector';
 import { FormControl, FormGroup } from '@angular/forms';
-import moment from 'moment';
+import { CommonUtilitiesService } from '../../../services/common-utilities.service';
 @Component({
   selector: 'app-chart-viewer',
   templateUrl: './chart-viewer.component.html',
   styleUrl: './chart-viewer.component.css',
-  //changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChartViewerComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
@@ -22,7 +21,7 @@ export class ChartViewerComponent implements OnInit {
     start: new FormControl<Date>(new Date(this.today.getTime() - (7 * 24 * 60 * 60 * 1000))),
     end: new FormControl<Date>(this.today),
   });
-  constructor(private store: Store) { }
+  constructor(private store: Store, private commonUtilities: CommonUtilitiesService) { }
   ngOnInit(): void { }
   ngAfterViewInit(): void {
     this.store.dispatch(loadChartConfigs());
@@ -37,14 +36,13 @@ export class ChartViewerComponent implements OnInit {
   filterDateWise() {
     this.generateChartData();
   }
-
   generateChartData() {
-    let totalDays = this.calculateDiff(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
-    let dateRangeArray = this.getDatesInRange(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
+    let totalDays = this.commonUtilities.getDaysBetweenDates(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
+    let dateRangeArray = this.commonUtilities.getDatesListBetweenRange(this.range.controls.start.value as Date, this.range.controls.end.value as Date);
     this.chartOptionsList = [];
     this.chartConfigList.forEach(element => {
       if (element.isVisible) {
-        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * this.randomBetween(10, 200)));
+        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * this.commonUtilities.getRandomNosBetweenRange(10, 200)));
         let chartOptions: Highcharts.Options = {
           title: {
             text: element.chartTitle,
@@ -72,31 +70,5 @@ export class ChartViewerComponent implements OnInit {
         this.chartOptionsList.push(chartOptions)
       }
     });
-  }
-
-  calculateDiff(startDate: Date, endDate: Date) {
-    const expiredMoment = moment(endDate); //Cast as moment date
-    const currentMoment = moment(startDate); //current moment date
-    return expiredMoment.diff(currentMoment, 'days');
-  }
-
-  getDatesInRange(startDate: Date, endDate: Date) {
-    const start = new Date(new Date(startDate));
-    let end = new Date(new Date(endDate));
-    const date = new Date(start.getTime());
-    const dates: string[] = [];
-
-    while (date <= end) {
-      dates.push(date.toDateString());
-      date.setDate(date.getDate() + 1);
-    }
-    return dates;
-  }
-  randomBetween(min: number, max: number) {
-    if (min < 0) {
-      return min + Math.random() * (Math.abs(min) + max);
-    } else {
-      return min + Math.random() * max;
-    }
   }
 }

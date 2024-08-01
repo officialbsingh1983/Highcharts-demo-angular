@@ -19,7 +19,5 @@ export const deleteChartConfigById=createAction('[chart configs]DeleteChartConfi
 export const deleteChartConfigsByIdSuccess=createAction('[chart configs]DeleteChartConfigsByIdSuccess', props<{id: string}>());
 
 
-
-
 export const displayAlert=createAction('[Display Alert]', props<{message: string, resultType:string}>());
 export const emptyAction=createAction('[Empty Alert]');

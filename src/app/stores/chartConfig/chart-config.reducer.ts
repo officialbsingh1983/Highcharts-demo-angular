@@ -39,7 +39,6 @@ const ChartConfigReducer = createReducer(ChartConfigsState,
         const _newData = state.list.map(x => {
             return x.id == action.inputData.id ? action.inputData : x
         });
-        console.log(_newData);
         return {
             ...state,
             list: _newData,
@@ -48,8 +47,7 @@ const ChartConfigReducer = createReducer(ChartConfigsState,
     }),
 
     on(deleteChartConfigsByIdSuccess, (state, action) => {
-        const _newData = state.list.filter(x=>x.id != action.id)
-        console.log(_newData);
+        const _newData = state.list.filter(x => x.id != action.id)
         return {
             ...state,
             list: _newData,

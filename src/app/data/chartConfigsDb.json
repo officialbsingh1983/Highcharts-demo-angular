@@ -8,26 +8,32 @@
       "isVisible": true
     },
     {
-      "id": "ca18c517-02c6-cfb7-ec4d-2edf99b6c23b",
-      "chartTitle": "dfgdfgd  sdfs fsfd",
-      "chartType": "line",
-      "color": "#e41470",
+      "id": "a06a632f-9261-18a6-eaa4-9752bac47437",
+      "chartTitle": "asdas",
+      "chartType": "spline",
+      "color": "#15010a",
       "isVisible": true
     },
     {
-      "id": "57646d99-b271-1724-9f12-74ffef255bc2",
-      "chartTitle": "title",
-      "chartType": "line",
-      "color": "#0531ba",
+      "id": "9c380105-a5c6-76c9-b4ff-5531b5849319",
+      "chartTitle": "ertet  sffdf f",
+      "chartType": "spline",
+      "color": "#150df0",
       "isVisible": true
     },
     {
-      "id": "ca18c517-02c6-cfb7-ec4d-2edf99b6c23b",
-      "chartTitle": "dfgdfgd  sdfs fsfd",
-      "chartType": "line",
-      "color": "#e41470",
+      "id": "ae544586-cf31-215d-3973-177ac2c0e079",
+      "chartTitle": "gs gf dfg g",
+      "chartType": "area",
+      "color": "#16e6e6",
       "isVisible": true
+    },
+    {
+      "id": "e11055db-0557-cc4c-f845-aeccd2cf4e10",
+      "chartTitle": "dgdfg dfg dfg dfg g",
+      "chartType": "spline",
+      "color": "#b316da",
+      "isVisible": false
     }
-
   ]
 }

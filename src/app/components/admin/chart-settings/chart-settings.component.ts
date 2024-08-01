@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddChartComponent } from '../add-chart/add-chart.component';
 import { Store } from '@ngrx/store';
@@ -14,41 +14,41 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrl: './chart-settings.component.css'
 })
 export class ChartSettingsComponent implements OnInit {
-  chartConfigList: IChartConfig[]=[];
-  dataSource:any;
-  colToBeShown:string[]=['chartTitle','chartType','color','isVisible', 'action'];
-  
+  chartConfigList: IChartConfig[] = [];
+  dataSource: any;
+  colToBeShown: string[] = ['chartTitle', 'chartType', 'color', 'isVisible', 'action'];
+
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
-  constructor(private dialog: MatDialog, private store: Store){}
+  constructor(private dialog: MatDialog, private store: Store) { }
   ngOnInit(): void {
     this.store.dispatch(loadChartConfigs());
-    this.store.select(getChartConfigList).subscribe(data=>{
+    this.store.select(getChartConfigList).subscribe(data => {
       this.chartConfigList = data;
-      this.dataSource=new MatTableDataSource<IChartConfig>(this.chartConfigList);
+      this.dataSource = new MatTableDataSource<IChartConfig>(this.chartConfigList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     })
   }
-  
-  fnOpenAddChartModal(){
+
+  fnOpenAddChartModal() {
     this.openDialog('', 'Add chart');
   }
-  fnOpenUpdateChartModal(id: string){
-    this.store.dispatch(getChartConfigById({id:id}));
+  fnOpenUpdateChartModal(id: string) {
+    this.store.dispatch(getChartConfigById({ id: id }));
     this.openDialog(id, 'Edit chart');
   }
-  fnDelete(id: string){
-    if(confirm('Are you sure to delete?')){
-      this.store.dispatch(deleteChartConfigById({id: id}));
+  fnDelete(id: string) {
+    if (confirm('Are you sure to delete?')) {
+      this.store.dispatch(deleteChartConfigById({ id: id }));
     }
   }
-  openDialog(id:string, dialogTitle:string){
+  openDialog(id: string, dialogTitle: string) {
     this.dialog.open(AddChartComponent, {
-      width:'50%',
-      enterAnimationDuration:'500ms',
-      exitAnimationDuration:'500ms',
-      data:{id:id, dialogTitle:dialogTitle}
+      width: '50%',
+      enterAnimationDuration: '500ms',
+      exitAnimationDuration: '500ms',
+      data: { id: id, dialogTitle: dialogTitle }
     })
   }
 }
