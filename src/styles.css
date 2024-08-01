@@ -23,4 +23,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: white !important;
     border: none;
 }
-
+.page-title{
+    color: #229954;
+}
+.page-heading{
+    padding: 5px; width: 100%;
+}

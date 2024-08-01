@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { loadChartConfigs } from '../../../stores/chartConfig/chart-configs.action';
 import { getChartConfigList } from '../../../stores/chartConfig/chart-config.selector';
 import { FormControl, FormGroup } from '@angular/forms';
-
+import moment from 'moment';
 @Component({
   selector: 'app-chart-viewer',
   templateUrl: './chart-viewer.component.html',
@@ -44,7 +44,7 @@ export class ChartViewerComponent implements OnInit {
     this.chartOptionsList = [];
     this.chartConfigList.forEach(element => {
       if (element.isVisible) {
-        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * this.randomBetween(10,200)));
+        let graphValues = Array.from({ length: totalDays }, () => Math.floor(Math.random() * this.randomBetween(10, 200)));
         let chartOptions: Highcharts.Options = {
           title: {
             text: element.chartTitle,
@@ -73,11 +73,13 @@ export class ChartViewerComponent implements OnInit {
       }
     });
   }
-  calculateDiff(startDate: Date, end: Date) {
-    var timeDiff = end.getDate() - startDate.getDate();
-    var diff = timeDiff+1;// / (1000 * 3600 * 24);
-    return Math.floor(diff);
+
+  calculateDiff(startDate: Date, endDate: Date) {
+    const expiredMoment = moment(endDate); //Cast as moment date
+    const currentMoment = moment(startDate); //current moment date
+    return expiredMoment.diff(currentMoment, 'days');
   }
+
   getDatesInRange(startDate: Date, endDate: Date) {
     const start = new Date(new Date(startDate));
     let end = new Date(new Date(endDate));
@@ -90,11 +92,11 @@ export class ChartViewerComponent implements OnInit {
     }
     return dates;
   }
-  randomBetween(min:number, max:number) {
+  randomBetween(min: number, max: number) {
     if (min < 0) {
-        return min + Math.random() * (Math.abs(min)+max);
-    }else {
-        return min + Math.random() * max;
+      return min + Math.random() * (Math.abs(min) + max);
+    } else {
+      return min + Math.random() * max;
     }
-}
+  }
 }

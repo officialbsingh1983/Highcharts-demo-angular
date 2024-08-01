@@ -26,3 +26,6 @@ button{
     cursor: pointer;
     font-size: 14px;
 }
+.dialog-row{
+    padding-top: 15px;
+}

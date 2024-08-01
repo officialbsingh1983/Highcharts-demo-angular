@@ -1,53 +1,33 @@
 {
   "chartConfigObj": [
     {
-      "id": "228ec21a-2f8b-54af-9d0c-aad04ae5922f",
-      "chartTitle": "c2 edited fff",
+      "id": "57646d99-b271-1724-9f12-74ffef255bc2",
+      "chartTitle": "title",
       "chartType": "line",
-      "color": "#266a6a",
-      "isVisible": false
-    },
-    {
-      "id": "957c31ab-856a-4088-0e24-58d6f059f250",
-      "chartTitle": "c4",
-      "chartType": "area",
-      "color": "#ac3535",
-      "isVisible": false
-    },
-    {
-      "id": "b294aa87-9e14-c808-3472-1dc917e672dd",
-      "chartTitle": "test chart name",
-      "chartType": "area",
-      "color": "#f93232",
-      "isVisible": false
-    },
-    {
-      "id": "c4436349-9dd2-58a6-a06d-fe39d3cd7e6b",
-      "chartTitle": "zzz",
-      "chartType": "area",
-      "color": "#27498a",
+      "color": "#0531ba",
       "isVisible": true
     },
     {
-      "id": "a74cf8cc-2f13-eee5-3f2a-df36b241d254",
-      "chartTitle": "f",
+      "id": "ca18c517-02c6-cfb7-ec4d-2edf99b6c23b",
+      "chartTitle": "dfgdfgd  sdfs fsfd",
       "chartType": "line",
-      "color": "#011515",
+      "color": "#e41470",
       "isVisible": true
     },
     {
-      "id": "0843f6a5-9205-419b-1478-66931415e0f3",
-      "chartTitle": "sdfsdfsf",
-      "chartType": "spline",
-      "color": "#46b6b6",
+      "id": "57646d99-b271-1724-9f12-74ffef255bc2",
+      "chartTitle": "title",
+      "chartType": "line",
+      "color": "#0531ba",
       "isVisible": true
     },
     {
-      "id": "96f60a82-83cd-0de3-780c-e568b58f372d",
-      "chartTitle": "ghfghfhfgh",
+      "id": "ca18c517-02c6-cfb7-ec4d-2edf99b6c23b",
+      "chartTitle": "dfgdfgd  sdfs fsfd",
       "chartType": "line",
-      "color": "#32bbbb",
+      "color": "#e41470",
       "isVisible": true
     }
+
   ]
 }

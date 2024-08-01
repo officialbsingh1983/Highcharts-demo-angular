@@ -1,7 +1,18 @@
-.mdc-card{
+.mdc-card {
     margin: 2%;
 }
-/* mat-grid-tile {
-    background: lightblue;
-    padding-top: 50px;
-  } */
+
+.chart-tile {
+    border: 2px dashed #82e0aa;
+    padding-top: 20px;
+    background: #82e0aa;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.date-range-error{
+    color:#c0392b;
+}

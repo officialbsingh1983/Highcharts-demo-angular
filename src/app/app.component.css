@@ -1,24 +1,25 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
-.bar-color{
-    background: #229954;
-    color: #fbfcfc;
-  }
-  .active {
-    background-color: #a9dfbf !important;
-  }
-  /* .default-link{
-    color: #566573;
-    font-size: 20px;
-  } */
-  .default-link a{
-    color: #8e44ad;
-    font-size: 15px;
-    margin-right: 10px;
-    background-color: #229954;
-  }
-  .name-plate{
-    font-size: 14px;
-    color: #1c2833;
-  }
+  flex: 1 1 auto;
+}
+
+.bar-color {
+  background: #229954;
+  color: #fbfcfc;
+}
+
+.active {
+  background-color: #a9dfbf !important;
+  color: #154360 !important;
+}
+
+.default-link a {
+  color: #1b4f72;
+  font-size: 15px;
+  margin-right: 10px;
+  background-color: #229954;
+}
+
+.name-plate {
+  font-size: 14px;
+  color: #1c2833;
+}

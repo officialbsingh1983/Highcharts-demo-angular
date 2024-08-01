@@ -3,7 +3,9 @@
   <input type="hidden" formControlName="color" required>
   <mat-card appearance="outlined">
     <mat-card-header>
-      <mat-card-title>{{dialogData.dialogTitle}}</mat-card-title>
+      <mat-card-title>
+        <div class="page-title"><h6>{{dialogData.dialogTitle}}</h6></div>
+      </mat-card-title>
     </mat-card-header>
     <mat-card-content>
 
@@ -18,7 +20,7 @@
             </mat-form-field>
           </td>
         </tr>
-        <tr>
+        <tr class="dialog-row">
           <th>Chart Type: </th>
           <td colspan="2">
             <mat-radio-group formControlName="chartType" aria-label="Select an option">
@@ -28,10 +30,10 @@
             </mat-radio-group>
           </td>
         </tr>
-        <tr>
-          <th>Chart Color: </th>
+        <tr >
+          <th class="dialog-row">Chart Color: </th>
 
-          <td>
+          <td class="dialog-row">
 
             <mat-chip-row>
               <!-- <button matChipRemove>
@@ -41,15 +43,15 @@
             </mat-chip-row>
 
           </td>
-          <td>
+          <td class="dialog-row">
             <div class="pick-color-btn" mat-stroked-button [(colorPicker)]="colorFromPicker" [cpCancelButton]=true [cpOKButton]="true"
-              (colorPickerChange)="onColorPickerChange($event)"><u>Pick Color</u></div>
+              (colorPickerChange)="onColorPickerChange($event)"><u><b>Pick Color</b></u></div>
           </td>
         </tr>
         <tr>
-          <th>Is Visible: </th>
-          <td><mat-slide-toggle formControlName="isVisible"></mat-slide-toggle></td>
-          <td colspan="2"></td>
+          <th class="dialog-row">Is Visible: </th>
+          <td class="dialog-row"><mat-slide-toggle formControlName="isVisible"></mat-slide-toggle></td>
+          <td class="dialog-row" colspan="2"></td>
         </tr>
       </table>
     </mat-card-content>

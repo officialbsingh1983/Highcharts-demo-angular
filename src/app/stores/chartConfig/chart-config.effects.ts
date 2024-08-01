@@ -115,7 +115,7 @@ export class ChartConfigEffects {
         let className = resultType == 'pass' ? 'green-snackbar' : 'red-snackbar';
         return this.snackBar.open(message, 'OK', {
             verticalPosition: 'top',
-            horizontalPosition: 'end',
+            horizontalPosition: 'center',
             duration: 5000,
             panelClass: [className]
         });
