@@ -39,7 +39,8 @@
           </td>
           <td class="dialog-row">
             <div class="pick-color-btn" mat-stroked-button [(colorPicker)]="colorFromPicker" [cpCancelButton]=true
-              [cpOKButton]="true" (colorPickerChange)="onColorPickerChange($event)"><u><b>Pick Color</b></u></div>
+              [cpOKButton]="true" (colorPickerChange)="onColorPickerChange($event)" cpCancelButtonClass="color-pick-button-cancel" cpOKButtonClass="color-pick-button-ok" cpOKButtonClass="color-pick-button-ok">
+              <u><b>Pick Color</b></u></div>
           </td>
         </tr>
         <tr>

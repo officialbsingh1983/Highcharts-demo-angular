@@ -2,24 +2,24 @@
   "chartConfigObj": [
     {
       "id": "57646d99-b271-1724-9f12-74ffef255bc2",
-      "chartTitle": "Sales day wise",
+      "chartTitle": "Sales [date-wise]",
       "chartType": "line",
       "color": "#1322e8",
       "isVisible": true
     },
     {
       "id": "a06a632f-9261-18a6-eaa4-9752bac47437",
-      "chartTitle": "Purchase date wise",
+      "chartTitle": "Purchase [date wise]",
       "chartType": "spline",
       "color": "#13e020",
       "isVisible": true
     },
     {
       "id": "e11055db-0557-cc4c-f845-aeccd2cf4e10",
-      "chartTitle": "Production",
+      "chartTitle": "Production [date-wise]",
       "chartType": "area",
       "color": "#b316da",
-      "isVisible": false
+      "isVisible": true
     }
   ]
 }
