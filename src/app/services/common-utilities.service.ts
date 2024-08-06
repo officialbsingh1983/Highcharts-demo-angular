@@ -5,7 +5,6 @@ import moment from 'moment';
 })
 export class CommonUtilitiesService {
   constructor() { }
-
   getDaysBetweenDates(startDate: Date, endDate: Date) {
     const expiredMoment = moment(endDate);
     const currentMoment = moment(startDate);

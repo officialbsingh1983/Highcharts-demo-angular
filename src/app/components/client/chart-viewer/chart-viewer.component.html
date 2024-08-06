@@ -9,11 +9,9 @@
         </div>
     </mat-card-header>
     <mat-card-header>
-       
     </mat-card-header>
     <mat-card-content style="min-height: 300px; overflow-y: auto;">
-
-       <table *ngIf="chartOptionsList.length>0" style="width: 100%;">
+        <table *ngIf="chartOptionsList.length>0" style="width: 100%;">
             <tr>
                 <td style="text-align: center ;">
                     <mat-form-field>
@@ -27,7 +25,8 @@
                         <mat-date-range-picker touchUi #picker>
                             <mat-date-range-picker-actions>
                                 <button mat-button matDateRangePickerCancel>Cancel</button>
-                                <button mat-raised-button (click)="filterDateWise()" matDateRangePickerApply>Apply</button>
+                                <button mat-raised-button (click)="filterDateWise()"
+                                    matDateRangePickerApply>Apply</button>
                             </mat-date-range-picker-actions>
                         </mat-date-range-picker>
                     </mat-form-field><br>
@@ -36,17 +35,13 @@
                     </span>
                 </td>
                 <td style="text-align: left;">
-
                     <button mat-flat-button (click)="generateChartData()">Randomize Data</button>
-                   
                 </td>
             </tr>
-       </table>
-       <hr>
-        
-
+        </table>
+        <hr>
         <div *ngIf="chartOptionsList.length>0; else noChartAvailable">
-           
+
             <div class="container">
                 <div *ngFor="let option of chartOptionsList" class="chart-tile">
                     <highcharts-chart [Highcharts]="Highcharts" [options]="option"></highcharts-chart>

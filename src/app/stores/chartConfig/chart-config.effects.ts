@@ -9,7 +9,7 @@ export class ChartConfigEffects {
     constructor(private actions: Actions,
         private chartSettingsService: ChartSettingsService,
         private snackBar: MatSnackBar) { }
-
+    
     _loadChartConfigs = createEffect(() =>
         this.actions.pipe(
             ofType(loadChartConfigs),
@@ -93,7 +93,7 @@ export class ChartConfigEffects {
         this.actions.pipe(
             ofType(displayAlert),
             exhaustMap((action) => {
-                return this.popShacBar(action.message, action.resultType)
+                return this.popShackBar(action.message, action.resultType)
                     .afterDismissed().pipe(
                         map(() => {
                             return emptyAction();
@@ -103,7 +103,7 @@ export class ChartConfigEffects {
         )
     )
 
-    popShacBar(message: string, resultType: string = 'fail') {
+    popShackBar(message: string, resultType: string = 'fail') {
         let className = resultType == 'pass' ? 'green-snackbar' : 'red-snackbar';
         return this.snackBar.open(message, 'OK', {
             verticalPosition: 'top',
